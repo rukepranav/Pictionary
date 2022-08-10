@@ -22,6 +22,7 @@ class Round(object):
         self.player_guessed = []
         self.skips = 0
         self.time = 75
+        self.game = game
         self.chat = Chat(self)
         self.player_scores = {player:0 for player in players}
         start_new_thread(self.time_thread, ())
@@ -63,7 +64,7 @@ class Round(object):
             t.sleep(1)
             self.time -= 1
 
-        self.end_round("Time up!!!!")
+        self.end_round("Time's up!!!!")
 
 
     def guess(self, player, wrd):
@@ -90,6 +91,9 @@ class Round(object):
             self.end_round("Drawing Player Left!!!")
 
     def end_round(self, msg):
+        #TODO implement end_round functionality
+        for player in self.players:
+            player.update_score(self.player_scores[player])
         self.game.round_ended()
 
 
