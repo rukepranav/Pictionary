@@ -25,7 +25,7 @@ class Player(object):
         self.game.player_guess(self,wrd)
 
     def disconnect(self):
-        pass
+        self.game.player_disconnected(self)
 
     def get_ip(self):
         return self.ip
