@@ -114,7 +114,8 @@ class Server(object):
             conn.sendall("1".encode())
             player = Player(addr,name)
             self.handle_queue(player)
-            threading.Thread(target=self.player_thread, args=(conn, player))
+            thread = threading.Thread(target=self.player_thread, args=(conn, player))
+            thread.start()
 
         except Exception as e:
             print("[EXCEPTION",e)
@@ -142,4 +143,5 @@ class Server(object):
 
 if __name__ == "__main__":
     s=Server()
-    threading.Thread(target=s.connection_thread)
+    thread = threading.Thread(target=s.connection_thread)
+    thread.start()

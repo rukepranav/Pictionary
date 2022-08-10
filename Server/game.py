@@ -2,7 +2,7 @@
 Handles operations related to game and connections
 between, player, board, chat and round
 """
-from player import Player
+
 from board import Board
 from round import Round
 import random
