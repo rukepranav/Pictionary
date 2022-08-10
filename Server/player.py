@@ -12,7 +12,7 @@ class Player(object):
 
     def set_game(self, game):
         """
-        sets the players game associtation
+        sets the players game associtations
         :param game: Game
         :return: None
         """
