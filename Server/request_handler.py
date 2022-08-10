@@ -9,8 +9,8 @@ import socket
 from _thread import *
 import threading
 import time
-from .player import Player
-from .game import Game
+from player import Player
+from game import Game
 import json
 
 
@@ -106,7 +106,7 @@ class Server(object):
 
     def authentication(self,conn,addr):
         try:
-            data = conn.recv(16)
+            data = conn.recv(1024)
             name = str(data.decode())
             if not name:
                 raise Exception("No Name Received")
@@ -120,7 +120,7 @@ class Server(object):
             print("[EXCEPTION",e)
             conn.close()
     def connection_thread(self):
-        server = ""
+        server = "localhost"
         port = 5555
 
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

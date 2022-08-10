@@ -4,8 +4,8 @@ word, time, skips, drawing player and more.
 """
 import time as t
 from _thread import *
-from .game import Game
-from .chat import Chat
+from game import Game
+from chat import Chat
 
 
 class Round(object):
